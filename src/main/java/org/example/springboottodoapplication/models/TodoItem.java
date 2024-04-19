@@ -21,16 +21,12 @@ public class TodoItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     private Boolean isComplete;
 
-    @Column(nullable = false)
     private Instant createdAt;
 
-    @Column(nullable = false)
     private Instant updatedAt;
 
     @Override

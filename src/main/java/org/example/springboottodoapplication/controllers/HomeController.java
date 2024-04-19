@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/")
     public ModelAndView index () {
-        ModelAndView modelAndView = new ModelAndView("index");
+        final ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("todoItems", this.todoItemService.getAll());
         return modelAndView;
     }
