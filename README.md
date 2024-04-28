@@ -1,6 +1,6 @@
 <h1>Todo App with Spring</h1>
 
-This is a simple Todo application built with Spring framework where users can add, edit, and delete their tasks.
+<p>This is a simple Todo application built with Spring framework where users can add, edit, and delete their tasks.</p>
 
 Features
 • Add Todo: Users can add new tasks to their list.
