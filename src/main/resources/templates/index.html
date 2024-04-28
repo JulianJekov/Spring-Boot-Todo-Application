@@ -61,7 +61,8 @@
         <p th:text="${deleteMessage}"></p>
     </div>
 
-    <meta http-equiv="refresh" content="2;url=/">
+    <meta http-equiv="refresh" content="2;url=/" th:if="${successMessage}" />
+    <meta http-equiv="refresh" content="2;url=/" th:if="${deleteMessage}" />
 </div>
 <script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
 </body>
