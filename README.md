@@ -3,6 +3,7 @@
 <p>This is a simple Todo application built with Spring framework where users can add, edit, and delete their tasks.</p>
 
 Features
+
 • Add Todo: Users can add new tasks to their list.
 
 • Edit Todo: Users can modify existing tasks.
@@ -10,6 +11,7 @@ Features
 • Delete Todo: Users can remove tasks from their list.
 
 Technologies Used
+
 • Spring Framework: Used for building the backend logic and RESTful APIs.
 
 • Java: Primary programming language for the backend.
@@ -23,6 +25,7 @@ Technologies Used
 • Maven: Build automation tool for managing dependencies and building the project.
 
 Usage
+
 1.Add a Todo:
 • Click on the "Create Todo" button.
 
