@@ -1,5 +1,7 @@
 <h1>Todo App with Spring</h1>
-https://github.com/JulianJekov/Spring-Boot-Todo-Application/blob/master/src/main/resources/imgs/Add%20Edit.png
+
+![spring boot todo application](./imgs/home.jpg)
+
 <p>This is a simple Todo application built with Spring framework where users can add, edit, and delete their tasks.</p>
 
 <h2>Features</h2>
