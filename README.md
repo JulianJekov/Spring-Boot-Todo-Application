@@ -1,6 +1,5 @@
-![spring boot todo application](./imgs/home.jpg)
-
 ![spring boot todo application](.imgs/AddEdit.png)
+![spring boot todo application](./imgs/home.jpg)
 
 <p>This is a simple Todo application built with Spring framework where users can add, edit, and delete their tasks.</p>
 
