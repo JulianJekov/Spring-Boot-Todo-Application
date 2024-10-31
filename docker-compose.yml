@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0                   # Use MySQL 8.0 image
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: todo_app
+    ports:
+      - "3307:3306"                     # Expose MySQL on port 3306
+    networks:
+      - spring-todo-network
+
+  # Spring Boot Application Service
+  spring-app:
+    build:
+      context: .                        # Builds from current directory
+      dockerfile: Dockerfile
+    container_name: spring_todo_app
+    ports:
+      - "8080:8080"                     # Expose Spring Boot app on port 8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/todo_app?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    depends_on:
+      - mysql                           # Ensures MySQL starts first
+    networks:
+      - spring-todo-network
+
+networks:
+  spring-todo-network:                  # Creates a custom Docker network
