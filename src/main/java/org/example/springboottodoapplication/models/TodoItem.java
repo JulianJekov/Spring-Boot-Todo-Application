@@ -23,7 +23,7 @@ public class TodoItem implements Serializable {
 
     private String description;
 
-    private Boolean isComplete;
+    private boolean isComplete;
 
     private Instant createdAt;
 

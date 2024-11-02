@@ -1,34 +1,35 @@
 version: '3.8'
 
 services:
-  # MySQL Database Service
-  mysql:
-    image: mysql:8.0                   # Use MySQL 8.0 image
-    container_name: mysql_container
+  # PostgreSQL Database Service
+  postgresql:
+    image: postgres:13                       # Use PostgreSQL 13 image
+    container_name: postgres_container
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
-      MYSQL_DATABASE: todo_app
+      POSTGRES_USER: ${DATABASE_USER:-postgres}        # Default to 'postgres' if not set
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-12345}   # Default to '12345' if not set
+      POSTGRES_DB: ${DATABASE_NAME:-todo_app}          # Default to 'todo_app' if not set
     ports:
-      - "3307:3306"                     # Expose MySQL on port 3306
+      - "5433:5432"                              # Map host port 5433 to container port 5432
     networks:
       - spring-todo-network
 
   # Spring Boot Application Service
   spring-app:
     build:
-      context: .                        # Builds from current directory
+      context: .                                  # Builds from current directory
       dockerfile: Dockerfile
     container_name: spring_todo_app
     ports:
-      - "8080:8080"                     # Expose Spring Boot app on port 8080
+      - "8080:8080"                               # Expose Spring Boot app on port 8080
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/todo_app?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 12345
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_container:5432/${DATABASE_NAME:-todo_app}  # Use container name
+      SPRING_DATASOURCE_USERNAME: ${DATABASE_USER:-postgres} # Default to 'postgres' if not set
+      SPRING_DATASOURCE_PASSWORD: ${DATABASE_PASSWORD:-12345} # Default to '12345' if not set
     depends_on:
-      - mysql                           # Ensures MySQL starts first
+      - postgresql                                 # Ensures PostgreSQL starts first
     networks:
       - spring-todo-network
 
 networks:
-  spring-todo-network:                  # Creates a custom Docker network
+  spring-todo-network:                            # Creates a custom Docker network
