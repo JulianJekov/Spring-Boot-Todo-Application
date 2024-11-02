@@ -21,9 +21,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-csivqn23esus73ftbl6g-a:5432/todo_app_lc0r
-      SPRING_DATASOURCE_USERNAME: todo_app_lc0r_user
-      SPRING_DATASOURCE_PASSWORD: gQLehrYGrQNRDpiAoddLM2JxL9JpPKd4
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     depends_on:
       - postgresql
     networks:
