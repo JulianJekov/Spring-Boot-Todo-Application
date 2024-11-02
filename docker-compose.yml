@@ -1,35 +1,33 @@
 version: '3.8'
 
 services:
-  # PostgreSQL Database Service
   postgresql:
-    image: postgres:13                       # Use PostgreSQL 13 image
+    image: postgres:13
     container_name: postgres_container
     environment:
-      POSTGRES_USER: postgres        # Default to 'postgres' if not set
-      POSTGRES_PASSWORD: 12345   # Default to '12345' if not set
-      POSTGRES_DB: todo_app          # Default to 'todo_app' if not set
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: todo_app
     ports:
-      - "5433:5432"                              # Map host port 5433 to container port 5432
+      - "5433:5432"
     networks:
       - spring-todo-network
 
-  # Spring Boot Application Service
   spring-app:
     build:
-      context: .                                  # Builds from current directory
+      context: .
       dockerfile: Dockerfile
     container_name: spring_todo_app
     ports:
-      - "8080:8080"                               # Expose Spring Boot app on port 8080
+      - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-csivqn23esus73ftbl6g-a:5432/todo_app_lc0r  # Use container name
-      SPRING_DATASOURCE_USERNAME: todo_app_lc0r_user # Default to 'postgres' if not set
-      SPRING_DATASOURCE_PASSWORD: gQLehrYGrQNRDpiAoddLM2JxL9JpPKd4 # Default to '12345' if not set
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-csivqn23esus73ftbl6g-a:5432/todo_app_lc0r
+      SPRING_DATASOURCE_USERNAME: todo_app_lc0r_user
+      SPRING_DATASOURCE_PASSWORD: gQLehrYGrQNRDpiAoddLM2JxL9JpPKd4
     depends_on:
-      - postgresql                                 # Ensures PostgreSQL starts first
+      - postgresql
     networks:
       - spring-todo-network
 
 networks:
-  spring-todo-network:                            # Creates a custom Docker network
+  spring-todo-network:
