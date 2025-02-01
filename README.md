@@ -25,6 +25,65 @@
 
 • Maven: Build automation tool for managing dependencies and building the project.
 
+Installation & Setup Guide
+
+Prerequisites
+Before running the project, ensure you have the following installed on your system:
+
+Java 17+ (JDK)
+
+Maven (for dependency management)
+
+MySQL (for the database)
+
+An IDE (IntelliJ IDEA, Eclipse, or VS Code)
+
+Git (optional, for cloning the repository)
+
+Step 1: Clone the Repository
+If you have Git installed, open a terminal and run:
+
+git clone 
+cd 
+
+If you don’t have Git, download the project as a ZIP and extract it.
+
+Step 2: Configure the Database
+
+Open MySQL and create a new database:
+
+CREATE DATABASE todo_db;
+
+Open the application.properties or application.yml file in the project and configure the database connection:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+Make sure to replace yourpassword with your actual MySQL password.
+
+Step 3: Build the Project
+In the terminal, navigate to the project folder and run:
+
+mvn clean install
+
+This will download dependencies and compile the project.
+
+Step 4: Run the Application
+Start the application with:
+
+mvn spring-boot:run
+
+or if using an IDE, run the main method in TodoApplication.java.
+
+Step 5: Access the Application
+Once the application starts successfully, open your browser and go to:
+
+http://localhost:8080
+
 <h2>Usage</h2>
 
 <h3>1.Add a Todo:</h3>
