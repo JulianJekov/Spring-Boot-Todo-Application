@@ -33,40 +33,34 @@
    - MySQL 8.0 or higher
    - Your favorite IDE (Spring Tool Suite, IntelliJ IDEA, or Eclipse)
 
-2. **Database Setup**
-   ```sql
-   CREATE DATABASE todo_db;
-   USE todo_db;
-   ```
-
-3. **Clone the Repository**
+2. **Clone the Repository**
    ```bash
    git clone https://github.com/yourusername/todo-application.git
    cd todo-application
    ```
 
-4. **Configure Application Properties**
+3. **Configure Application Properties**
    - Navigate to `src/main/resources/application.properties`
    - Update the following properties with your MySQL credentials:
      ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
+     spring.datasource.url=jdbc:mysql://localhost:3306/todo_app?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
      spring.datasource.username=your_username
      spring.datasource.password=your_password
      ```
 
-5. **Build the Project**
+4. **Build the Project**
    ```bash
    mvn clean install
    ```
 
-6. **Run the Application**
+5. **Run the Application**
    ```bash
    mvn spring-boot:run
    ```
    
    The application will start running at `http://localhost:8080`
 
-7. **Verify Installation**
+6. **Verify Installation**
    - Open your web browser
    - Navigate to `http://localhost:8080`
    - You should see the Todo application homepage
