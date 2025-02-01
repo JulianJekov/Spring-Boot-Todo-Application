@@ -25,64 +25,51 @@
 
 • Maven: Build automation tool for managing dependencies and building the project.
 
-Installation & Setup Guide
+<h2>Installation & Setup Guide</h2>
 
-Prerequisites
-Before running the project, ensure you have the following installed on your system:
+1. **Prerequisites**
+   - Java JDK 11 or higher
+   - Maven 3.6.3 or higher
+   - MySQL 8.0 or higher
+   - Your favorite IDE (Spring Tool Suite, IntelliJ IDEA, or Eclipse)
 
-Java 17+ (JDK)
+2. **Database Setup**
+   ```sql
+   CREATE DATABASE todo_db;
+   USE todo_db;
+   ```
 
-Maven (for dependency management)
+3. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/todo-application.git
+   cd todo-application
+   ```
 
-MySQL (for the database)
+4. **Configure Application Properties**
+   - Navigate to `src/main/resources/application.properties`
+   - Update the following properties with your MySQL credentials:
+     ```properties
+     spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
+     spring.datasource.username=your_username
+     spring.datasource.password=your_password
+     ```
 
-An IDE (IntelliJ IDEA, Eclipse, or VS Code)
+5. **Build the Project**
+   ```bash
+   mvn clean install
+   ```
 
-Git (optional, for cloning the repository)
+6. **Run the Application**
+   ```bash
+   mvn spring-boot:run
+   ```
+   
+   The application will start running at `http://localhost:8080`
 
-Step 1: Clone the Repository
-If you have Git installed, open a terminal and run:
-
-git clone 
-cd 
-
-If you don’t have Git, download the project as a ZIP and extract it.
-
-Step 2: Configure the Database
-
-Open MySQL and create a new database:
-
-CREATE DATABASE todo_db;
-
-Open the application.properties or application.yml file in the project and configure the database connection:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
-spring.datasource.username=root
-spring.datasource.password=yourpassword
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
-Make sure to replace yourpassword with your actual MySQL password.
-
-Step 3: Build the Project
-In the terminal, navigate to the project folder and run:
-
-mvn clean install
-
-This will download dependencies and compile the project.
-
-Step 4: Run the Application
-Start the application with:
-
-mvn spring-boot:run
-
-or if using an IDE, run the main method in TodoApplication.java.
-
-Step 5: Access the Application
-Once the application starts successfully, open your browser and go to:
-
-http://localhost:8080
+7. **Verify Installation**
+   - Open your web browser
+   - Navigate to `http://localhost:8080`
+   - You should see the Todo application homepage
 
 <h2>Usage</h2>
 
